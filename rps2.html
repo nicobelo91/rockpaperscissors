@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Rock Paper Scissors</title>
+  </head>
+
+  <body>
+  <button class="btn" id="rock">Rock</button>
+  <button class="btn" id="paper">Paper</button>
+  <button class="btn" id="scissors">Scissors</button>
+<h4>You chose:<p id="player"></p></h4>      
+<h4>Computer chose:<p id="computer"></p></h4>
+<h3>So, <p id="outcome"></p></h3>
+
+
+    <script>
+        
+
+        //Rock < Paper < Scissors < Rock
+
+        function playRound(computerSelection, playerSelection) {
+            if((computerSelection === "rock") && (playerSelection === "paper")) {
+                return "You win!";
+            } else if ((computerSelection === "rock") && (playerSelection === "scissors")) {            
+                return "You lose!";
+            } else if ((computerSelection === "paper") && (playerSelection ==="rock")) {                
+                return "You lose!";
+            } else if ((computerSelection === "paper") && (playerSelection === "scissors")) {                
+                return "You win!";
+            } else if ((computerSelection === "scissors") && (playerSelection === "paper")) {               
+                return "You lose!";
+            } else if ((computerSelection === "scissors") && (playerSelection === "rock")) {                
+                return "You win!";
+            } else if (computerSelection === playerSelection) {
+                return "It's a tie!";
+            }
+            
+        }
+
+       //The input chosen by the computer
+        
+        function computerPlay() {
+            const choice = ["rock", "paper", "scissors"]
+            let RockPaperScissors = choice[Math.floor(Math.random() * choice.length)];
+            document.getElementById("computer").innerHTML= RockPaperScissors;
+            return RockPaperScissors;           
+        }
+        
+        //Buttons
+
+        const btnRock = document.querySelector('#rock');
+        const btnPaper = document.querySelector('#paper');
+        const btnScissors = document.querySelector('#scissors');
+
+            //Button actions
+
+            btnRock.addEventListener('click', () => {
+            let playerSelection = "rock";
+            let computerSelection = computerPlay();
+            
+            });
+
+            btnPaper.addEventListener('click', () => {
+            let playerSelection = "paper";
+            let computerSelection = computerPlay();
+            
+            });
+
+            btnScissors.addEventListener('click', () => {
+            let playerSelection = "scissors";
+            let computerSelection = computerPlay();
+            
+            });
+
+            
+        
+        //The input chosen by the player
+
+        function playerPlay() {}
+            
+            
+
+        
+        //Result
+            
+            const playerSelection =  playerPlay();
+            const computerSelection = computerPlay();
+            let result = playRound(computerSelection, playerSelection);
+            document.getElementById("outcome").innerHTML= result;
+            document.getElementById("player").innerHTML= playerSelection;
+        
+            
+   
+
+    </script>
+
+</body>
+</html>
