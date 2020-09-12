@@ -1,102 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>Rock Paper Scissors</title>
-  </head>
+<html>
+    <head>
+        <title>Rock Paper Scissors Game</title>
+        <link rel="stylesheet" href="tutorial.css">
+    </head>
 
-  <body>
-  
-<h4>You chose:<p id="player"></p></h4>      
-<h4>Computer chose:<p id="computer"></p></h4>
-<h3>So, <p id="outcome"></p></h3>
+    <body>
+        <h1>Computer's Choice</h1>
+        <h2 id = "compChoice">?</h2>
 
-<h5>Computer score:<p id="cpuScore"></p></h5>
-<h5>Player Score:<p id="humanScore"></p></h5>
-    <script>
+        <h1>User's Choice</h1>
+        <h2 id = "userChoice">?</h2>
 
-       //The input chosen by the computer
-        
-        function computerPlay() {
-            const choice = ["rock", "paper", "scissors"]
-            let RockPaperScissors = choice[Math.floor(Math.random() * choice.length)];
-            document.getElementById("computer").innerHTML= RockPaperScissors;
-            return RockPaperScissors;           
-        }
+        <h1>Final Result:</h1>
+        <h2 id = "result">?</h2>
 
-        //The input chosen by the player
+        <button class = "choices" id = "rock">Rock</button>
+        <button class = "choices" id = "paper">Paper</button>
+        <button class = "choices" id = "scissors">Scissors</button>
+        <button onclick = "reset()" id = "reset">Reset</button>
 
-        function playerPlay() {
-            const selection = prompt ("Enter either Rock, Paper, or Scissors");
-            let playerChoice = selection.toLowerCase();
-            document.getElementById("player").innerHTML= playerChoice;
-            return playerChoice;
-        }
-        
-                
-        //Player vs Computer
-            let rounds;
-            let computerScore = 0;
-            let playerScore = 0;
-            let tieScore = 0;
-            
-
-        function game(){
-            
-            for (rounds = 0; rounds < 5; rounds++){
-                const playerSelection =  playerPlay();
-                const computerSelection = computerPlay();
-            let result = playRound(computerSelection, playerSelection);
-
-            //Rock < Paper < Scissors < Rock
-        
-        function playRound(computerSelection, playerSelection) {
-            if((computerSelection === "rock") && (playerSelection === "paper")) {
-                playerScore++
-                document.getElementById("humanScore").innerHTML= playerScore
-                return "You win!";
-            } else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
-                computerScore++
-                document.getElementById("cpuScore").innerHTML= computerScore            
-                return "You lose!";
-            } else if ((computerSelection === "paper") && (playerSelection ==="rock")) {
-                computerScore++
-                document.getElementById("cpuScore").innerHTML= computerScore                
-                return "You lose!";
-            } else if ((computerSelection === "paper") && (playerSelection === "scissors")) {
-                playerScore++
-                document.getElementById("humanScore").innerHTML= playerScore                
-                return "You win!";
-            } else if ((computerSelection === "scissors") && (playerSelection === "paper")) {
-                computerScore++
-                document.getElementById("cpuScore").innerHTML= computerScore               
-                return "You lose!";
-            } else if ((computerSelection === "scissors") && (playerSelection === "rock")) {
-                playerScore++
-                document.getElementById("humanScore").innerHTML= playerScore                
-                return "You win!";
-            } else {
-                return "It's a tie!";
-            }
-        }
-            
-            console.log("Computer Score: " + computerScore);
-		    console.log("Player Score: " + playerScore);
-		    console.log("Draws: " + tieScore);
-            
-            }
-            if (computerScore > playerScore) {
-                return "You were defeated by the computer!";
-            } else if (computerScore < playerScore) {
-                return "You defeated the computer";
-            } else if (computerScore == playerScore) {
-                return "You tied with the computer!";
-            }
-            
-        }
-   
-
-    </script>
-
-</body>
+        <script src="tutorial.js"></script>
+    </body>
 </html>
